@@ -1,0 +1,45 @@
+<div class= "container" style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 8px;">
+ <h2>Lista de Clientes</h2>
+  <table class="table-auto w-full border-collapse">
+    <thead>
+      <tr class="bg-gray-200 text-left">
+        <th class="p-2 border-b">Nombre</th>
+        <th class="p-2 border-b">Apellido</th>
+        <th class="p-2 border-b">Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let cliente of clientes; trackBy: trackByClienteId "
+        (click)="seleccionar(cliente)"
+        [ngClass]="{'selected': clienteSeleccionado?.id === cliente.id, 'cursor-pointer hover:bg-gray-100': true}"
+      >
+        <td class="p-2 border-b">{{ cliente.nombre }}</td>
+        <td class="p-2 border-b">{{ cliente.apellido }}</td>
+        <td class="p-2 border-b">{{ cliente.direccion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <div class="mt-4">
+      <button
+        class= "btn btn-danger mt-3"
+        [disabled]="!clienteSeleccionado"
+        (click)="eliminarSeleccionado()"
+      >
+        Eliminar cliente seleccionado
+      </button>
+
+<!-- Botón para eliminar -->
+
+
+
+
+  
+
+
+
+
+
+    
